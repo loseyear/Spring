@@ -1,30 +1,49 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import { Panel, PanelGroup } from 'react-resizable-panels';
 
-const App = (): JSX.Element => {
-  const [count, setCount] = useState(0);
+import ResizeHandle from './ResizeHandle';
+import styles from './styles.module.css';
+
+export default function App() {
+  const [showFirstPanel, setShowFirstPanel] = useState(true);
+  const [showLastPanel, setShowLastPanel] = useState(true);
 
   return (
-    <div className='App'>
-      <div>
-        <a href='https://vitejs.dev' target='_blank' rel='noreferrer'>
-          <img src='/vite.svg' className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://reactjs.org' target='_blank' rel='noreferrer'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+    <div className={styles.Container}>
+      <div className={styles.TopRow}>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          <button className={styles.Button} onClick={() => setShowFirstPanel(!showFirstPanel)}>
+            {showFirstPanel ? 'hide' : 'show'} top panel
+          </button>
+          &nbsp;
+          <button className={styles.Button} onClick={() => setShowLastPanel(!showLastPanel)}>
+            {showLastPanel ? 'hide' : 'show'} bottom panel
+          </button>
         </p>
       </div>
-      <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
+      <div className={styles.BottomRow}>
+        <PanelGroup autoSaveId='example' direction='vertical'>
+          {showFirstPanel && (
+            <>
+              <Panel className={styles.Panel} defaultSize={20} order={1}>
+                <div className={styles.PanelContent}>top</div>
+              </Panel>
+              <ResizeHandle />
+            </>
+          )}
+          <Panel className={styles.Panel} order={2}>
+            <div className={styles.PanelContent}>middle</div>
+          </Panel>
+          {showLastPanel && (
+            <>
+              <ResizeHandle />
+              <Panel className={styles.Panel} defaultSize={20} order={3}>
+                <div className={styles.PanelContent}>bottom</div>
+              </Panel>
+            </>
+          )}
+        </PanelGroup>
+      </div>
     </div>
   );
-};
-
-export default App;
+}
