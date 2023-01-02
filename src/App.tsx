@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Panel, PanelGroup } from 'react-resizable-panels';
 
 import ResizeHandle from './ResizeHandle';
@@ -7,6 +7,8 @@ import styles from './styles.module.css';
 export default function App() {
   const [showFirstPanel, setShowFirstPanel] = useState(true);
   const [showLastPanel, setShowLastPanel] = useState(true);
+
+  useEffect(() => {console.log('showFirstPanel %s', showFirstPanel)}, [showFirstPanel]);
 
   return (
     <div className={styles.Container}>
