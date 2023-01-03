@@ -1,10 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import './root.css';
+import { RecoilRoot } from 'recoil';
+import { HashRouter as Router } from 'react-router-dom';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+import App from './App';
+
+if (typeof (window as any).global === 'undefined') {
+  (window as any).global = window;
+}
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <RecoilRoot>
+        <App />
+      </RecoilRoot>
+    </Router>
   </React.StrictMode>,
 );
