@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
-import { Panel, PanelGroup } from 'react-resizable-panels';
+import { useEffect, useState } from 'react'
+import { Panel, PanelGroup } from 'react-resizable-panels'
 
-import ResizeHandle from './ResizeHandle';
-import './root.css';
-import styles from './styles.module.css';
+import ResizeHandle from './ResizeHandle'
+import './root.css'
+import styles from './styles.module.css'
 
 export default function App() {
-  const [showFirstPanel, setShowFirstPanel] = useState(true);
-  const [showLastPanel, setShowLastPanel] = useState(true);
+  const [showFirstPanel, setShowFirstPanel] = useState(true)
+  const [showLastPanel, setShowLastPanel] = useState(true)
 
   useEffect(() => {
-    console.log('showFirstPanel %s', showFirstPanel);
-  }, [showFirstPanel]);
+    console.log('showFirstPanel %s', showFirstPanel)
+  }, [showFirstPanel])
 
   return (
     <div className={styles.Container}>
@@ -50,5 +50,5 @@ export default function App() {
         </PanelGroup>
       </div>
     </div>
-  );
+  )
 }

@@ -1,33 +1,33 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react'
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
-import { Box } from './style';
+import { Box } from './style'
 
 const ErrorPage: React.FC = () => {
-  const intervalRef = useRef<any>(null);
-  const navigate = useNavigate();
-  const [sec, setSec] = useState(5);
+  const intervalRef = useRef<any>(null)
+  const navigate = useNavigate()
+  const [sec, setSec] = useState(5)
 
   useEffect(
     () => () => {
-      clearInterval(intervalRef.current);
+      clearInterval(intervalRef.current)
     },
     [],
-  );
+  )
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setSec((preSec) => preSec - 1);
-    }, 1000);
-  }, []);
+      setSec((preSec) => preSec - 1)
+    }, 1000)
+  }, [])
 
   useEffect(() => {
     if (sec === 0) {
-      clearInterval(intervalRef.current);
-      navigate('/');
+      clearInterval(intervalRef.current)
+      navigate('/')
     }
-  }, [sec, navigate]);
+  }, [sec, navigate])
 
   return (
     <Box>
@@ -40,6 +40,6 @@ const ErrorPage: React.FC = () => {
         立即跳转
       </div>
     </Box>
-  );
-};
-export default ErrorPage;
+  )
+}
+export default ErrorPage

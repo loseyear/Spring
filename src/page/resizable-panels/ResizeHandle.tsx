@@ -1,6 +1,6 @@
-import { PanelResizeHandle } from 'react-resizable-panels';
+import { PanelResizeHandle } from 'react-resizable-panels'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 export default function ResizeHandle({ className = '', id }: { className?: string; id?: string }) {
   return (
@@ -14,5 +14,5 @@ export default function ResizeHandle({ className = '', id }: { className?: strin
         </svg>
       </div>
     </PanelResizeHandle>
-  );
+  )
 }

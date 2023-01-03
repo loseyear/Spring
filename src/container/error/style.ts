@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import ErrorImg from './image/err.png';
+import ErrorImg from './image/err.png'
 
 export const Box = styled.div`
   padding: 170px 0 0;
@@ -36,7 +36,7 @@ export const Box = styled.div`
     padding: 0 4px 0 0;
     color: #0cc;
   }
-`;
+`
 
 export const TemTip = styled.div`
   padding: 80px 0 0;
@@ -44,4 +44,4 @@ export const TemTip = styled.div`
   font-size: 12px;
   line-height: 18px;
   color: #909fba;
-`;
+`
