@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 const ErrorPage = React.lazy(() => import('~/container/error'))
 const PageList = React.lazy(() => import('~/page/list'))
 const ResizablePanels = React.lazy(() => import('~/page/resizable-panels'))
+const ReactBeautifulDnd = React.lazy(() => import('~/page/react-beautiful-dnd'))
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
         <Route path='/' element={<Navigate to='/home' />} />
         <Route path='/home' element={<PageList />} />
         <Route path='/resizable-panels' element={<ResizablePanels />} />
+        <Route path='/react-beautiful-dnd' element={<ReactBeautifulDnd />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </Suspense>

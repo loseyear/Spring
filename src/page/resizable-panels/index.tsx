@@ -17,17 +17,23 @@ export default function App() {
     <div className={styles.Container}>
       <div className={styles.TopRow}>
         <p>
-          <button className={styles.Button} onClick={() => setShowFirstPanel(!showFirstPanel)}>
+          <button
+            className={styles.Button}
+            onClick={() => setShowFirstPanel(!showFirstPanel)}
+          >
             {showFirstPanel ? 'hide' : 'show'} top panel
           </button>
           &nbsp;
-          <button className={styles.Button} onClick={() => setShowLastPanel(!showLastPanel)}>
+          <button
+            className={styles.Button}
+            onClick={() => setShowLastPanel(!showLastPanel)}
+          >
             {showLastPanel ? 'hide' : 'show'} bottom panel
           </button>
         </p>
       </div>
       <div className={styles.BottomRow}>
-        <PanelGroup autoSaveId='example' direction='vertical'>
+        <PanelGroup autoSaveId="example" direction="vertical">
           {showFirstPanel && (
             <>
               <Panel className={styles.Panel} defaultSize={20} order={1}>
